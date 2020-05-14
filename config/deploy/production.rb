@@ -59,4 +59,11 @@
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
-server '35.154.196.188', user: 'sumit', roles: %w{web app db}
+server '35.154.196.188', user: 'sumit', roles: %w{web app db},
+ssh_options: {
+    user: "sumit", # overrides user setting above
+    keys: %w(/home/user_name/.ssh/id_rsa),
+    forward_agent: false,
+    auth_methods: %w(publickey password)
+    # password: "please use keys"
+  }

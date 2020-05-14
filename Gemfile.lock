@@ -86,6 +86,13 @@ GEM
     capistrano-rails (1.4.0)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
+    capistrano-rvm (0.1.2)
+      capistrano (~> 3.0)
+      sshkit (~> 1.2)
+    capistrano3-puma (3.1.1)
+      capistrano (~> 3.7)
+      capistrano-bundler
+      puma (~> 3.4)
     carrierwave (2.1.0)
       activemodel (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -120,6 +127,8 @@ GEM
       concurrent-ruby (~> 1.0)
     erubi (1.9.0)
     ffi (1.12.2)
+    figaro (1.2.0)
+      thor (>= 0.14.0, < 2)
     friendly_id (5.2.5)
       activerecord (>= 4.0.0)
     globalid (0.4.2)
@@ -271,11 +280,15 @@ DEPENDENCIES
   aws-sdk-s3 (~> 1)
   bootsnap (>= 1.1.0)
   byebug
-  capistrano (~> 3.10)
-  capistrano-rails (~> 1.4)
+  capistrano
+  capistrano-bundler
+  capistrano-rails
+  capistrano-rvm
+  capistrano3-puma
   carrierwave
   devise
   devise-jwt
+  figaro
   friendly_id (~> 5.2.4)
   listen (>= 3.0.5, < 3.2)
   paperclip
