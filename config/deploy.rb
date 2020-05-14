@@ -6,7 +6,7 @@ set :repo_url, "git@github.com:sumitkumarpoint/sample_app.git"
 set :branch, :master
 set :deploy_to, '/home/sumit/linkedin-like-app'
 set :pty, true
-set :linked_files, %w{config/database.yml config/application.yml}
+set :linked_files, %w{config/database.yml config/secrets.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle}
 set :keep_releases, 5
 set :rvm_type, :user
