@@ -48,6 +48,7 @@ group :development do
   gem 'capistrano-bundler', require: false
   gem 'capistrano-rvm'
   gem 'capistrano3-nginx'
+  gem 'capistrano-rails-collection'
 
 end
 
