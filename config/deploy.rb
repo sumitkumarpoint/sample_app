@@ -6,7 +6,7 @@ set :repo_url, "git@github.com:sumitkumarpoint/sample_app.git"
 set :branch, :master
 set :deploy_to, '/home/sumit/linkedin-like-app'
 set :pty, true
-set :linked_files, %w{config/database.yml config/secrets.yml}
+set :linked_files, %w{config/database.yml config/secrets.yml config/master.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle}
 set :keep_releases, 5
 set :rvm_type, :user
@@ -29,6 +29,11 @@ set :puma_preload_app, false
 set :nginx_sites_available_path, '/etc/nginx/sites-available'
 set :nginx_sites_enabled_path, '/etc/nginx/sites-enabled'
 
+set :puma_worker_timeout, nil
+
+set :puma_init_active_record, true
+
+set :puma_preload_app, false
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
