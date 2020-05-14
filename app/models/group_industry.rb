@@ -1,0 +1,2 @@
+class GroupIndustry < ApplicationRecord
+end
