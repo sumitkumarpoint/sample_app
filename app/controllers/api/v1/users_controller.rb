@@ -12,7 +12,7 @@ module Api::V1
     end
 
     def public_profile
-      # abort current_user.inspect
+      abort Credential.env(:s3_region).inspect
       @user=User.find_by(:slug=>params[:slug])
       if @user.present?
         @user.profile_viewers.find_or_create_by(:viewer_id=>current_user.id) if current_user.present? && current_user.id != @user.id
