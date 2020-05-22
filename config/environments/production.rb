@@ -85,21 +85,21 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost'}
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
-  # ActionMailer::Base.smtp_settings = {
-  #     :address => "smtp.sendgrid.net",
-  #     :port => 587,
-  #     :domain => "localhost",
-  #     :authentication => :plain,
-  #     :user_name => "apikey",
-  #     :password => Rails.application.credentials.production[:sg_smtp_password]
-  # }
-  # config.paperclip_defaults = {
-  #     :storage => :s3,
-  #     :s3_credentials => {
-  #         :bucket => Rails.application.credentials.production[:s3_bucket],
-  #         :access_key_id => Rails.application.credentials.production[:s3_access_key_id],
-  #         :secret_access_key => Rails.application.credentials.production[:s3_secret_access_key],
-  #         :s3_region => Rails.application.credentials.production[:s3_region]
-  #     }
-  # }
+  ActionMailer::Base.smtp_settings = {
+      :address => "smtp.sendgrid.net",
+      :port => 587,
+      :domain => "localhost",
+      :authentication => :plain,
+      :user_name => "apikey",
+      :password => Credential.env(:sg_smtp_password)
+  }
+  config.paperclip_defaults = {
+      :storage => :s3,
+      :s3_credentials => {
+          :bucket => Credential.env(:s3_bucket),
+          :access_key_id => Credential.env(:s3_access_key_id),
+          :secret_access_key => Credential.env(:s3_secret_access_key),
+          :s3_region => Credential.env(:s3_region)
+      }
+  }
 end

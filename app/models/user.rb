@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :profile_viewers
   has_many :posts
   has_many :post_viewers,through: :posts
+  has_many :group_memberships
+  has_many :user_groups, through: :memberships
   after_create :create_user_profile
   extend FriendlyId
   friendly_id :username, use: :slugged
