@@ -59,3 +59,17 @@
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
+
+server '13.232.201.84', user: 'sumit', roles: %w{web app db},
+       ssh_options: {
+           user: "sumit", # overrides user setting above
+           keys: %w(/home/user_name/.ssh/id_rsa),
+           forward_agent: false,
+           auth_methods: %w(publickey password)
+           # password: "please use keys"
+       }
+set :rails_env, :staging
+set :puma_env,  :staging
+set :rack_env,  :staging
+set :stage,     :staging
+set :branch,    :master
